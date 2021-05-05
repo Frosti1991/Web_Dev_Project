@@ -1,0 +1,255 @@
+/* CSS HEX */
+/* --french-bistre: #7a6c5dff;
+--charcoal: #2a3d45ff;
+--almond: #ddc9b4ff;
+--khaki-web: #bcac9bff;
+--old-rose: #c17c74ff; 
+--black-coral: #495867ff;*/
+
+body {
+    background: #ddc9b4ff;
+    font-family: "Nunito", sans-serif;
+}
+
+footer{
+    background-color:#7a6c5dff;
+}
+.dynamo{
+    color: yellow;
+}
+
+.loesung{
+    background-color: #7a6c5d;
+    color:white;
+    border-color:red;
+}
+
+
+
+.blinki{
+    animation-name: blink;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+}
+@keyframes blink{
+    0%{opacity:0;}
+    99%{opacity:0.0;}
+    100%{opacity:0.3;}
+}
+.text-dange{
+    color:#2a3d45ff;
+}
+.intro {
+   color: white;
+  background-color: #7a6c5d;
+    font-size:1.25rem;
+}
+
+.inhalt h2{
+    color: #2a3d45ff;
+    font-weight: 100;
+    font-size: 3rem;
+}
+
+.inhalt p {
+color:#495867ff;
+font-weight: 100;
+font-size:1.5rem;
+line-height:2;
+}
+
+.kachel{
+    background-color: #7a6c5dff;
+}
+
+.btn-outline-primary{
+    font-weight: 100;
+    font-size: 1.5rem;
+    color:white;
+    background-color: #7a6c5dff;
+    border-radius:10%;
+    border-color:white;
+}
+.input-group-text{
+    border-color:white;  
+    background-color: #7a6c5dff;
+    font-weight: 100;
+    font-size: 1.5rem;
+    color:white;
+    padding: 0.5rem;
+}
+
+.form-control {
+    font-size: 1.0rem !important;
+}
+
+.solution{
+    font-weight:bold;
+
+}
+
+.accordion{
+    /* background-color: #7a6c5dff; */
+    border-color:white;
+    color:#495867ff;
+    font-size:1.5rem;
+}
+.accordion-control>*{
+    font-size:1.5rem;
+    font-family:inherit;
+}
+
+.card, .card li{
+    background-color: #ddc9b4ff;
+    color: #495867ff;
+}
+
+.accordion-body{
+    padding: 0rem;
+}
+
+
+.accordion-content, .accordion-content .accordion-content-wrapper{
+    font-size: 1.5rem;
+    padding: 0rem;
+}
+
+.accordion-button, .accordion-button.collapsed{
+   padding: 0.5rem;
+   border-radius: inherit;
+   box-shadow: none !important;
+    
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+.accordion-button:not(.collapsed){
+    background-color: white;
+    color:#495867ff;
+}
+
+.accordion-control::after{
+    color:white;
+}
+.icon{
+    color:white;
+}
+.ZeileContent{
+    margin-top: 5rem;
+}
+
+.selectric-items li.selected:before, .selectric-items li.selected:hover:before {
+    background: #7a6c5d;
+}
+
+
+.transparent{
+    background-color: transparent;
+}
+
+.Rätsel{
+    background-color: #7a6c5d;
+}
+
+.dropdown-menu{
+    background-color: #7a6c5dff; 
+    color: #2a3d45ff;
+    border-color: #2a3d45ff;
+}
+.dropdown-item{
+    color:white;
+}
+
+section.footer {
+    background-color: #7a6c5dff;
+    color:white;
+}
+@media (max-width: 1199.98px){
+.navbar .navbar-toggler {
+    border-radius:0.25rem;
+}}
+.navbar-nav .nav-link{
+    font-size: 1.5rem;
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+font-weight: 100;
+text-transform: uppercase;
+padding-left: 16px;
+padding-right: 16px;
+}
+
+#mainNavbar .navbar-brand{
+    color: #2a3d45ff;
+    font-size: 1.5rem;
+}
+
+#mainNavbar .nav-link{
+    color:white;
+}
+#mainNavbar .nav-link:hover{
+    color:#2a3d45ff;
+}
+
+#headingGroup span{
+color: #2a3d45ff;
+}
+
+#headingGroup h1{
+    font-weight: 100;
+    font-size: 3rem;
+    }
+
+.navbar.scrolled{
+    background:#7a6c5d;
+    transition: background 1000ms;
+}
+
+
+@media (max-width:600px) {
+    #headingGroup h1 {
+        font-weight: 100;
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width:1200px) {
+    .container-fluid {
+        max-width:none;
+    }
+}
+
+.btn:focus, .btn:active{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, button:not(:disabled):not(.disabled):active{
+    background-color:#ddc9b4ff;
+    color:#2a3d45ff;
+    border-color:#2a3d45ff;
+}
+
+.input-group-text:hover,.btn-outline-primary:hover {
+  background-color: white;
+    color:#2a3d45ff;
+    border-color:#2a3d45ff;
+}
+
+.btn:hover {
+    background-color: #ddc9b4ff;
+    color: white;
+    border-color:#7a6c5d;
+}
+
+.dropdown-item:hover{
+    background-color: white;
+    color:#2a3d45ff;
+}
+
+svg {
+    text-align: center !important;
+}
