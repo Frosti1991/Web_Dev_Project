@@ -37,6 +37,9 @@ if ($typ === "family") {
         $url = "Location:  ../index_friends.html"
     }
 
+//lets store the login_name in a cookie to use it in the process
+setcookie('login_name', $name); // expires when the session ends, i.e. when the browser window is closed
+
 if ($result->num_rows > 0) {  //checks if there is at least one record to display
   // output data of each row
   while($row = $result->fetch_assoc()) {
@@ -44,10 +47,6 @@ if ($result->num_rows > 0) {  //checks if there is at least one record to displa
     $login_name = $row["login_name"];
     $id = $row["id"];
     $solved = $row["riddle_solved"];  // we expect a bool here, stating whether the riddle has been solved successfully. (0/false = not solved, 1/true = solved)
-
-    //lets store the login_name in a cookie to use it in the process
-    setcookie('login_name', $login_name); // expires when the session ends, i.e. when the browser window is closed
-    setcookie('user_id', $id); // expires when the session ends, i.e. when the browser window is closed
 
     //check whether riddle was solved
     if ($solved) {
