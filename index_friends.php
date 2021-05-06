@@ -1,8 +1,11 @@
+<?php
+$name = $_GET["name"];
+$typ = $_GET["typ"];
+?>
+
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>Startseite Family</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,8 +23,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/app_self.css">
 
+  <title>Jetzt wird´s irre!</title>
 </head>
-
 <body>
 
   <nav id="mainNavbar" class="navbar navbar-dark  navbar-expand-md py-0 sticky-top">
@@ -36,16 +39,16 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">RÄTSEL</a>
           <ul class="dropdown-menu text-start border-0 p-0" aria-labelledby="navbarDropdown">
-            <a href="raetsel_family.html?#Rätsel1" class="dropdown-item">Rätsel #1</a>
-            <a href="raetsel_family.html?#Rätsel2" class="dropdown-item">Rätsel #2</a>
-            <a href="raetsel_family.html?#Rätsel3" class="dropdown-item">Rätsel #3</a>
-            <a href="raetsel_family.html?#Rätsel4" class="dropdown-item">Rätsel #4</a>
-            <a href="raetsel_family.html?#Rätsel5" class="dropdown-item">Rätsel #5</a>
-            <a href="raetsel_family.html?#Rätsel6" class="dropdown-item">Rätsel #6</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #1</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #2</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #3</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #4</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #5</a>
+            <a href=<?php echo 'raetsel_friends.php?name='.$name.'&typ='.$typ."#Rätsel1"; ?> class="dropdown-item">Rätsel #6</a>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="raetsel_family.html?#Loesung" class="nav-link">LÖSUNG</a>
+          <a href=<?php echo 'raetsel_friends.php#?name='.$name.'&typ='.$typ."Loesung"; ?> class="nav-link">LÖSUNG</a>
         </li>
       </ul>
     </div>
@@ -60,12 +63,12 @@
           <h1 class="">JETZT<span>/</span>WIRD´S<span>/</span> IRRE!</h1>
           <h1 class="text-dange">GEBURTSTAG</h1>
           <h1 class="">JETZT<span>/</span>WIRD´S<span>/</span> IRRE!</h1>
-          <h1 class="text-dange">JUHU!</h1>
+          <h1 class="text-dange">GEIL!</h1>
           <h1 class="">JETZT<span>/</span>WIRD´S<span>/</span> IRRE!</h1>
         </div>
       </div>
-      <div class="col-xl-6 text-center">
-        <img class="img-fluid" src="imgs/birthday_lego.jfif" alt="Geburtstags-Männel">
+      <div class="col-xl-6">
+        <img class="img-fluid" src="imgs/pferd.jpg" alt="Luise und Christoph auf dem Feel-Festival 2019!">
       </div>
     </div>
   </section>
@@ -78,7 +81,7 @@
       <div class="col-xl-6 text-center order-1 order-xl-2">
         <div class="row justify-content-center">
           <div class="col-10  inhalt mb-5 ">
-            <h2>ULTIMATIVER RÄTSELSPASS!</h2>
+            <h2>ULTIMATIVER RÄTSELSPASS für <?php echo $name; ?>!</h2>
             <div class="p-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="15%" height="15%" fill="currentColor"
                 class="d-none d-lg-inline bi bi-question-square text-white" viewBox="0 0 16 16">
@@ -89,11 +92,13 @@
               </svg>
             </div>
             <p class="lead">
-              Hallo liebe Geburtstags-Gäste! Ihr seid auf meiner kleinen Geburtstags-Homepage gelandet. Sehr schön. Doch
-              die offizielle Einladung müsst ihr euch erst noch verdienen! Da ich ein großer Rätsel-Fan bin, müsst ihr 6
-              Fragen beantworten, bevor ihr die Einladung bekommt! Ich glaub an euch! Viel Spaß!
+              Bevor ihr erfahrt, wann, wo und wieso die Party des Jahres steigen wird, müsst ihr euch etwas anstrengen!
+              Corona stinkt hart ab, allerdings konnte ich so meine innige Liebe zu Escape-Räumen und Rätsel-Spaß weiter
+              vertiefen. Eure Einladung erhaltet ihr, wenn ihr vorab ein paar kleine Rätselfragen beantwortet!
             </p>
-            <form action="raetsel_family.html?#Rätsel1">
+            <form action="raetsel_friends.php#Rätsel1" method="GET">
+                <input type="hidden" name="name" value=<?php echo $name;?> ></input>
+                              <input type="hidden" name="typ" value=<?php echo $typ;?> ></input>
               <button class="btn btn-outline-primary btn-lg">Zum
                 Rätsel</button>
             </form>
@@ -121,8 +126,10 @@
             <p class="lead">
               Wenn ihr denkt, alle Rätsel richtig beantwortet zu haben, dann könnt ihr hier eure Lösung eingeben!
             </p>
-            <form action="raetsel_family.html?#Loesung">
-              <button class="btn btn-outline-primary btn-lg">Zur Lösung</button>
+            <form action="./raetsel_friends.php" method="GET">
+              <input type="hidden" name="name" value=<?php echo $name;?> ></input>
+              <input type="hidden" name="typ" value=<?php echo $typ;?> ></input>
+              <button type="submit" class="btn btn-outline-primary btn-lg">Zur Lösung</button>
             </form>
           </div>
         </div>
@@ -146,7 +153,6 @@
       <div class="col-md-4 "> Powered by Tom Ziegler and Chrissi</div>
     </div>
   </section>
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -169,7 +175,5 @@
       });
     });
   </script>
-
 </body>
-
 </html>

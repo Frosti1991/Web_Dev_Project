@@ -1,3 +1,9 @@
+<?php
+$name = $_GET["name"];
+$typ = $_GET["typ"];
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -573,7 +579,7 @@
                     </div>
 
                     <div class="col-10 col-sm-6 mb-3 py-1">
-                        <form id="check" action="php/riddle_handler_friends.php" method="POST"
+                        <form id="check" action= <?php echo 'php/riddle_handler.php?name='.$name.'&typ='.$typ; ?> method="POST"
                             class="input-group input-group-lg">
                             <input type="text" class="form-control" aria-label="With textarea" id="Loesung"
                                 name="riddle" placeholder="GEIL!">

@@ -1,20 +1,18 @@
 <?php
-
 //retrieve input data from POST request payload. The data is found in the $_POST variable
-
 //for now, we expect the following variables: name
-
 $name = $_POST["name_input"];
-$typ =  $_GET["path"];
+$typ =  $_GET["typ"];
 
-echo "<script type='text/javascript'>alert($typ);</script>";
+//echo "<script type='text/javascript'>alert($_SESSION['login_name']);</script>";
+echo "<script type='text/javascript'>alert(".$_SESSION['login_name'].");</script>";
 
 //First, lets look at our credentials
 $servername = "localhost"; //if we host our php file at the same url as the database, we can use localhost. Most database providers restrict access to local anyway.
 $username = "guest";
 $password = "p@bT1UbrloBA*Zvl";
 $database = "guest";
-
+//
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -31,15 +29,11 @@ $result = $conn->query($sql); // lets process it
 $url = "";
 if ($typ === "family") {
         //riddle solved, forward to final page
-        $url = "Location:  ../index_family.html"
+        $url = "Location:  ../index_family.php?name=".$name."&typ=".$typ;
     }else {
         //riddle not solved, forward to riddle
-        $url = "Location:  ../index_friends.html"
+        $url = "Location:  ../index_friends.php?name=".$name."&typ=".$typ;
     }
-
-//lets store the login_name in a cookie to use it in the process
-setcookie('login_name', $name); // expires when the session ends, i.e. when the browser window is closed
-
 if ($result->num_rows > 0) {  //checks if there is at least one record to display
   // output data of each row
   while($row = $result->fetch_assoc()) {

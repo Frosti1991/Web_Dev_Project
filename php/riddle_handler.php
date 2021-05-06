@@ -1,19 +1,32 @@
 <?php
+$name = $_GET["name"];
+$typ = $_GET["typ"];
+
+$abort_url = "";
+$raetsel_url = "";
+if ($typ === "family") {
+        //riddle solved, forward to final page
+        $abort_url = "Location:  ../landing_page_family.html?name=".$name."&typ=".$typ;
+        $raetsel_url = "Location:  ../raetsel_family.php?name=".$name."&typ=".$typ;
+    }else {
+        //riddle not solved, forward to riddle
+        $abort_url = "Location:  ../landing_page_friends.html?name=".$name."&typ=".$typ;
+        $raetsel_url = "Location:  ../raetsel_friends.php?name=".$name."&typ=".$typ;
+    }
 //lets recall our session cookies
-if (isset($_COOKIE["login_name"]) and isset($_COOKIE["user_id"])){
-    $login_name = $_COOKIE["login_name"];
-    $id = $_COOKIE["user_id"];
+if (isset($name) and isset($typ)){
+   //alright, lets continue
 }
 else {
     //login_name or id not found. abort and go back to login page
-    header("Location: ../landing_page_friends.html");
+    header($abort_url);
     die();
 }
 
 //lets verify the name and id before we proceed to make the db request
-if (is_null($login_name) or is_null($id)) {
+if (is_null($name) or is_null($typ)) {
     //login_name or id not found. abort and go back to login page
-    header("Location: ../landing_page_friends.html");
+    header($abort_url);
     die();
 }
 
@@ -55,19 +68,7 @@ if ($riddle == "Corona" || $riddle == "corona"|| $riddle == "CORONA") {
         echo "<script type='text/javascript'>alert(".$message.");</script>";
     }
 } else {
-    //solution is wrong, print some error and let the user retry --> brauche ich nicht, da JS eine Fehlermeldung bringt
-    // $message = "Leider nein.";
-    // echo "<html>
-    // <script type='text/javascript'>
-    // if (confirm('Leider falsch. Nochmal probieren?')) {
-    //   // go to riddle
-    //   window.location.href = './riddle.php';
-    // } else {
-    //   // go back to login
-    //   window.location.href = './index.html';
-    // }
-    // </script></html>";
-    header("Location: ../raetsel_friends.html"); 
+    header($raetsel_url);
     die();
 }
 
