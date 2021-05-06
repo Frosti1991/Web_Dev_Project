@@ -5,6 +5,9 @@
 //for now, we expect the following variables: name
 
 $name = $_POST["name_input"];
+$typ =  $_GET["path"];
+
+echo "<script type='text/javascript'>alert($typ);</script>";
 
 //First, lets look at our credentials
 $servername = "localhost"; //if we host our php file at the same url as the database, we can use localhost. Most database providers restrict access to local anyway.

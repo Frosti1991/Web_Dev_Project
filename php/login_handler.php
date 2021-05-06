@@ -7,6 +7,8 @@
 $name = $_POST["name_input"];
 $typ =  $_GET["path"];
 
+echo "<script type='text/javascript'>alert($typ);</script>";
+
 //First, lets look at our credentials
 $servername = "localhost"; //if we host our php file at the same url as the database, we can use localhost. Most database providers restrict access to local anyway.
 $username = "guest";
@@ -25,6 +27,15 @@ if ($conn->connect_error) {
 $sql = " SELECT * FROM guest_list WHERE login_name='".$name ."'"; // * means we retrieve all columns from the table where the name corresponds to the one entered
 
 $result = $conn->query($sql); // lets process it
+
+$url = "";
+if ($typ === "family") {
+        //riddle solved, forward to final page
+        $url = "Location:  ../index_family.html"
+    }else {
+        //riddle not solved, forward to riddle
+        $url = "Location:  ../index_friends.html"
+    }
 
 if ($result->num_rows > 0) {  //checks if there is at least one record to display
   // output data of each row
@@ -45,7 +56,7 @@ if ($result->num_rows > 0) {  //checks if there is at least one record to displa
         die();
     }else {
         //riddle not solved, forward to riddle
-        header("Location: ../index_friends.html");
+        header($url);
         die();
     }
   }
@@ -57,9 +68,7 @@ if ($result->num_rows > 0) {  //checks if there is at least one record to displa
   $sql = "INSERT INTO guest_list (login_name) VALUES ('".$name."')";
   if ($conn->query($sql) === TRUE) {
     //forward to the riddle page
-    // HIER MUSS AUCH NOCH EIN COOKIE GESETZT WERDEN ODER???
-    // id = SELECT id FROM guest_list WHERE login_name='".$name."' oder so ähnlich
-   header("Location: ../index_friends.html");
+   header($url);
    die();
   } else {
   // something went wrong :-(
